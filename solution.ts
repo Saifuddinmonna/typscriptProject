@@ -51,3 +51,21 @@ interface ItemWithRating {
    
     return items.filter(item => item.rating >= 4);
   }
+
+
+
+
+
+interface User {
+    id: number;
+    name: string;
+    email: string;
+    isActive: boolean;
+  }
+  
+  function filterActiveUsers(users: User[]): User[] {
+    
+    return users.filter(user => user.isActive === true);
+  }
+
+

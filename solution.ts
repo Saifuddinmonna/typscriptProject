@@ -41,7 +41,7 @@ function formatValue(value: string | number | boolean): string | number | boolea
 
 type Rating = 0 | 1 | 2 | 3 | 4 | 5;
 
-// Interface including the Rating type
+
 interface ItemWithRating {
   title: string;
   rating: Rating;

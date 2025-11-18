@@ -83,3 +83,53 @@ interface Book {
     console.log(`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${availability}`);
   }
   
+
+
+
+function getUniqueValues<T extends string | number>(array1: T[], array2: T[]): T[] {
+    const uniqueMap: { [key: string]: boolean } = {};
+    let result: T[] = [];
+  
+    for (let i = 0; i < array1.length; i++) {
+      const value = array1[i];
+      const key = String(value);
+      if (!uniqueMap[key]) {
+        uniqueMap[key] = true;
+        result[result.length] = value;
+      }
+    }
+  
+    for (let i = 0; i < array2.length; i++) {
+      const value = array2[i];
+      const key = String(value);
+      if (!uniqueMap[key]) {
+        uniqueMap[key] = true;
+        result[result.length] = value;
+      }
+    }
+  
+    return result;
+  }
+
+  interface Product {
+    name: string;
+    price: number;
+    quantity: number;
+    discount?: number;
+  }
+  
+  function calculateTotalPrice(products: Product[]): number {
+    return products.reduce((acc, product) => {
+      let price = product.price * product.quantity;
+  
+      if (product.discount !== undefined) {
+        if (product.discount < 0 || product.discount > 100) {
+          throw new Error("Discount must be between 0 and 100");
+        }
+        price -= price * (product.discount / 100);
+      }
+  
+      return acc + price;
+    }, 0);
+  }
+  

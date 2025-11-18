@@ -38,7 +38,7 @@ function formatValue(value: string | number | boolean): string | number | boolea
 
 
 
-// Rating must be between 0–5
+
 type Rating = 0 | 1 | 2 | 3 | 4 | 5;
 
 // Interface including the Rating type

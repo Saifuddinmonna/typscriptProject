@@ -35,4 +35,15 @@ function formatValue(value: string | number | boolean): string | number | boolea
           return `Name: ${this.name}, Age: ${this.age}`;
         }
       }
-      
+
+
+
+interface ItemWithRating {
+    title: string;
+    rating: number;
+  }
+  
+  function filterByRating(items: ItemWithRating[]): ItemWithRating[] {
+   
+    return items.filter(item => item.rating >= 4);
+  }
